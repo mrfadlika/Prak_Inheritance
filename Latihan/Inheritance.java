@@ -38,18 +38,37 @@ class Mahasiswa extends Orang {
     }
 }
 
-class Pegawai extends Orang {
-    String jabatanKaryawan;
+class Dosen extends Orang {
+    String jabatanDosen;
 
-    public Pegawai(String nama, int usia, int tb, String jabatanKaryawan) {
+    public Dosen(String nama, int usia, int tb, String jabatanDosen) {
         super(nama, usia, tb);
-        this.jabatanKaryawan = jabatanKaryawan;
+        this.jabatanDosen = jabatanDosen;
     }
 
     @Override
     public void perkenalkanDiri() {
         super.perkenalkanDiri();
-        System.out.println("Saya adalah pegawai dengan jabatan " + jabatanKaryawan);
+        System.out.println("Saya adalah Dosen dengan jabatan " + jabatanDosen);
+    }
+
+    public void kerja() {
+        System.out.println("Saya sedang kerja");
+    }
+}
+
+class Staff extends Orang {
+    String jabatanStaff;
+
+    public Staff(String nama, int usia, int tb, String jabatanStaff) {
+        super(nama, usia, tb);
+        this.jabatanStaff = jabatanStaff;
+    }
+
+    @Override
+    public void perkenalkanDiri() {
+        super.perkenalkanDiri();
+        System.out.println("Saya adalah Staff dengan jabatan " + jabatanStaff);
     }
 
     public void kerja() {
@@ -61,14 +80,19 @@ public class Inheritance {
     public static void main(String[] args) {
         // buatmi objeknya disini
         Mahasiswa mahasiswa = new Mahasiswa("Raffi Fadlika", 18, 165, 42623002, 3.98);
-        Pegawai pegawai = new Pegawai("Raffi Fadlika", 18, 165, "Fullstack Dev.");
+        Dosen dosen = new Dosen("Andrew Sigma", 90, 165, "Dosen Gado Gado");
+        Staff staff = new Staff("Mayersi Putra", 101, 0, "Officer Boy");
 
         System.out.println("Perkenalan Mahasiswa : ");
         mahasiswa.perkenalkanDiri();
         mahasiswa.belajar();
 
-        System.out.println("Perkenalan Pegawai : ");
-        pegawai.perkenalkanDiri();
-        pegawai.kerja();
+        System.out.println("Perkenalan Dosen : ");
+        dosen.perkenalkanDiri();
+        dosen.kerja();
+
+        System.out.println("Perkenalan Staff : ");
+        staff.perkenalkanDiri();
+        staff.kerja();
     }
 }
